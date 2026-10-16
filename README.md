@@ -75,3 +75,28 @@ Calculated Total Sales, Total Orders, Average Order Value and Total Customers to
 ## DASHBOARD
 
 ## KEY INSIGHTS
+## Key Insights
+
+### Overall
+- Total sales of **$2.26M** from **4,922 orders** and **793 customers**, with an average order value of **$459**.
+
+### Sales over time
+- After a small drop in 2016 (**-4.2%**), sales grew strongly in 2017 (**+30.6%**) and 2018 (**+20.3%**). Sales in 2018 were about **50% higher** than in 2015.
+- Sales are highly seasonal: **September to December generate ~52% of yearly sales**.
+- **November** is the best month ($350K) and **February** the weakest ($59K), almost 6 times lower.
+
+### Products
+- **Technology** is the top category (**36.6%** of sales), but the three categories are fairly balanced (Furniture 32.2%, Office Supplies 31.2%).
+- **Phones** and **Chairs** are the top sub-categories and together generate about **29%** of all sales.
+
+### Regions and customer segments
+- **West** and **East** generate **61%** of sales, while **South** is the weakest region (**17.2%**).
+- **East** has the highest average order value ($489), even though it has fewer orders than West.
+- **Consumer** customers generate **50.8%** of sales. However, sales per customer are similar across all segments (~$2,800–2,900), so Consumer leads because it has more customers, not because each customer spends more.
+
+## Recommendations
+- **Prepare for the end of the year:** increase stock and marketing from August, ahead of the September–December peak.
+- **Boost the slow months:** run promotions in January and February to reduce the drop after the holidays.
+- **Focus on top products:** keep Phones and Chairs well stocked and use them in campaigns and bundles.
+- **Grow the South region:** investigate why sales are lower (fewer customers, fewer stores, less marketing) and test targeted campaigns there.
+- **Grow the Corporate and Home Office segments:** since their customers spend as much as Consumers, acquiring more of them is a clear growth opportunity.
