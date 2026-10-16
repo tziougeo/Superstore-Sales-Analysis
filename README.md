@@ -75,7 +75,6 @@ Calculated Total Sales, Total Orders, Average Order Value and Total Customers to
 ## DASHBOARD
 
 ## KEY INSIGHTS
-## Key Insights
 
 ### Overall
 - Total sales of **$2.26M** from **4,922 orders** and **793 customers**, with an average order value of **$459**.
