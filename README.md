@@ -1,4 +1,4 @@
-# Superstore-Sales-Analysis-
+# Superstore-Sales-Analysis
 Sales analysis of Superstore data using SQL Server and Power BI 
 ## PROJECT OVERVIEW
 This project analyzes the sales performance of a US-based retail store (Superstore) between 2015 and 2018. The goal is to identify sales trends over time, the best-performing product categories, and the most valuable regions and customer segments, and to present the results in an interactive Power BI dashboard.
