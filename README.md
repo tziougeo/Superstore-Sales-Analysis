@@ -3,14 +3,14 @@ Sales analysis of Superstore data using SQL Server and Power BI
 ## PROJECT OVERVIEW
 This project analyzes the sales performance of a US-based retail store (Superstore) between 2015 and 2018. The goal is to identify sales trends over time, the best-performing product categories, and the most valuable regions and customer segments, and to present the results in an interactive Power BI dashboard.
 ## DATASET OVERVIEW
-Source: Superstore Sales Dataset – Kaggle
-File: train.csv
-Size: ~9,800 rows, 18 columns
+Source: Superstore Sales Dataset – Kaggle  
+File: train.csv  
+Size: 9,800 rows, 18 columns  
 Key columns: Order ID, Order Date, Ship Date, Ship Mode, Customer ID, Segment, Region, State, City, Category, Sub-Category, Product Name, Sales
 ## QUESTIONS
-How do sales change over time (yearly and monthly)? Is there seasonality?
-Which product categories and sub-categories generate the most sales?
-Which regions and customer segments generate the most sales?
+Q1:How do sales change over time (yearly and monthly)? Is there seasonality?  
+Q2:Which product categories and sub-categories generate the most sales?  
+Q3Which regions and customer segments generate the most sales?
 ## KPIs
 | KPI | Description |
 |---|---|
@@ -20,8 +20,8 @@ Which regions and customer segments generate the most sales?
 | Total Customers | Number of unique customers |
 
 ## DATA IMPORT & TOOLS
-SQL Server (SSMS): data import, cleaning, and analysis queries
-Power BI: data modeling, DAX measures, and dashboard
+SQL Server (SSMS): data import, cleaning, and analysis queries  
+Power BI: data modeling, DAX measures, and dashboard  
 GitHub: version control and documentation
 
 ## PROJECT STRUCTURE
@@ -41,7 +41,18 @@ superstore-sales-analysis/
     └── dashboard.png
 ```
 ## DATA CLEANING
+Data was imported into SQL Server as a raw table (`sales_raw`) and cleaned into a new table (`sales_clean`) using `sql/02_data_cleaning.sql`.
 
+| Check | Finding | Action |
+|---|---|---|
+| Missing values | 11 missing postal codes, all for Burlington, Vermont | Filled with Burlington's postal code (05401) |
+| Duplicates | 1 duplicate row (order US-2015-150119) | Removed, kept one copy |
+| Dates | Stored as text in dd/mm/yyyy format | Converted to `DATE` |
+| Sales | Stored as text | Converted to `DECIMAL`; no invalid or negative values found |
+| Text columns | Possible extra spaces | Trimmed |
+| Logic check | Ship date before order date | None found |
+
+**Result:** 9,800 raw rows → 9,799 clean rows.
 ## DASHBOARD
 
 ## KEY INSIGHTS
