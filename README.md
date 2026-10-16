@@ -53,6 +53,25 @@ Data was imported into SQL Server as a raw table (`sales_raw`) and cleaned into 
 | Logic check | Ship date before order date | None found |
 
 **Result:** 9,800 raw rows → 9,799 clean rows.
+## Analysis
+The analysis was performed in SQL Server using `sql/03_analysis_queries.sql`, based on the clean table (`sales_clean`).
+
+### KPIs
+Calculated Total Sales, Total Orders, Average Order Value and Total Customers to give an overall view of the business.
+
+### Q1. Sales over time
+- Total sales per year, with year-over-year growth (%) using the `LAG()` window function
+- Total sales per month across all years, to identify seasonality
+
+### Q2. Product performance
+- Total sales and share (%) of total sales per category
+- Top 10 sub-categories by sales
+
+### Q3. Regions and customer segments
+- Total sales, share (%) and number of orders per region
+- Total sales, share (%) and number of customers per segment
+
+**SQL techniques used:** aggregate functions (`SUM`, `COUNT DISTINCT`), `GROUP BY`, CTEs, window functions (`LAG`, `SUM() OVER()`), date functions (`YEAR`, `MONTH`, `DATENAME`).
 ## DASHBOARD
 
 ## KEY INSIGHTS
