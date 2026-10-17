@@ -54,7 +54,7 @@ Data was imported into SQL Server as a raw table (`sales_raw`) and cleaned into 
 
 **Result:** 9,800 raw rows → 9,799 clean rows.
 ## Analysis
-The analysis was performed in SQL Server using `sql/03_analysis_queries.sql`, based on the clean table (`sales_clean`).
+The analysis was performed in SQL Server based on the clean table (`sales_clean`).
 
 ### KPIs
 Calculated Total Sales, Total Orders, Average Order Value and Total Customers to give an overall view of the business.
