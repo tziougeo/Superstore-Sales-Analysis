@@ -1,10 +1,10 @@
 # Superstore Sales Analysis
-
+*Retail sales performance 2015–2018  SQL Server & Power BI*
 ## Overview
 This project analyzes the sales performance of a US-based retail store (Superstore) between 2015 and 2018.
 The goal is to identify sales trends over time, the best-performing product categories, and the most valuable regions and customer segments, and to present the results in an interactive Power BI dashboard.
 
-![Superstore Sales Dashboard](images/dashboard.png)
+![Superstore Sales Dashboard](images/Dashboard_SUPERSTORE.png)
 
 ## Dataset
 - **Source:** [Superstore Sales Dataset – Kaggle](https://www.kaggle.com/datasets/rohitsahoo/sales-forecasting)
@@ -39,13 +39,13 @@ superstore-sales-analysis/
 ├── sql/
 │   └── superstore_sales_analysis.sql
 ├── powerbi/
-│   └── Superstore_Sales.pbix
+│   └── Superstore.pbix
 └── images/
-    └── dashboard.png
+    └──Dashboard_SUPERSTORE.png
 ```
 
 ## Data Cleaning
-Data was imported into SQL Server as a raw table (`sales_raw`) and cleaned into a new table (`sales_clean`) using `sql/superstore_sales_analysis.sql` (Part 2).
+Data was imported into SQL Server as a raw table (`sales_raw`) and cleaned into a new table (`sales_clean`) using `sql/superstore_sales_analysis.sql` (Part B).
 
 | Check | Finding | Action |
 |---|---|---|
@@ -59,7 +59,7 @@ Data was imported into SQL Server as a raw table (`sales_raw`) and cleaned into 
 **Result:** 9,800 raw rows → 9,799 clean rows.
 
 ## Analysis
-The analysis was performed in SQL Server using `sql/superstore_sales_analysis.sql` (Part 3), based on the clean table (`sales_clean`).
+The analysis was performed in SQL Server using `sql/superstore_sales_analysis.sql` (Part C), based on the clean table (`sales_clean`).
 
 ### KPIs
 Calculated Total Sales, Total Orders, Average Order Value and Total Customers to give an overall view of the business.
@@ -81,9 +81,9 @@ Calculated Total Sales, Total Orders, Average Order Value and Total Customers to
 ## Power BI Dashboard
 
 ### Data model
-- **Sales** table: imported directly from SQL Server (`sales_clean`)
+- **sales** table: imported directly from SQL Server (`sales_clean`)
 - **Date** table: created with DAX (`CALENDAR`), marked as date table and connected to `Sales[order_date]` (one-to-many)
-- **_Measures** table: holds all DAX measures
+- **Measures** table: holds all DAX measures
 
 ### DAX measures
 | Measure | Purpose |
@@ -110,7 +110,7 @@ Calculated Total Sales, Total Orders, Average Order Value and Total Customers to
 
 ### Sales over time
 - After a small drop in 2016 (**-4.2%**), sales grew strongly in 2017 (**+30.6%**) and 2018 (**+20.3%**). Sales in 2018 were about **50% higher** than in 2015.
-- Sales are highly seasonal: **September to December generate ~52% of yearly sales**.
+- Sales are highly seasonal: **September to December generate 52% of yearly sales**.
 - **November** is the best month ($350K) and **February** the weakest ($59K), almost 6 times lower.
 
 ### Products
@@ -119,8 +119,8 @@ Calculated Total Sales, Total Orders, Average Order Value and Total Customers to
 
 ### Regions and customer segments
 - **West** and **East** generate **61%** of sales, while **South** is the weakest region (**17.2%**).
-- **East** has the highest average order value (~$489), even though it has fewer orders than West.
-- **Consumer** customers generate **50.8%** of sales. However, sales per customer are similar across all segments (~$2,800–2,900), so Consumer leads because it has more customers, not because each customer spends more.
+- **East** has the highest average order value ($489), even though it has fewer orders than West.
+- **Consumer** customers generate **50.8%** of sales. However, sales per customer are similar across all segments ($2,800–2,900), so Consumer leads because it has more customers, not because each customer spends more.
 
 ## Recommendations
 - **Prepare for the end of the year:** increase stock and marketing from August, ahead of the September–December peak.
