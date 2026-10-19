@@ -1,4 +1,5 @@
-create database Superstore
+CREATE DATABASE Superstore;
+GO
 /* 
    Superstore Sales Analysis
    Data exploration & cleaning
@@ -6,13 +7,15 @@ create database Superstore
    Output table : dbo.sales_clean
     */
 
-
-----First check
-----Check Lines Number
-SELECT COUNT(*) AS total_rows FROM train
-----Change Tables Name 
 USE Superstore;
+GO
+
+----First check: number of rows (9,800)
+SELECT COUNT(*) AS total_rows FROM dbo.train;
+
+----Rename the imported table
 EXEC sp_rename 'dbo.train', 'sales_raw';
+GO
 
 ----PART A DATA QUALITY CHECKS
 ----A1.Missing values per important column
@@ -26,13 +29,13 @@ SELECT
     SUM(CASE WHEN Sales        IS NULL                       THEN 1 ELSE 0 END) AS missing_sales
 FROM dbo.sales_raw;
  
-----A2. Which rows have no Postal Code?
+----A2. Which rows have no Postal Code
 SELECT City, State, COUNT(*) AS rows_without_postal_code
 FROM dbo.sales_raw
 WHERE Postal_Code IS NULL OR Postal_Code = ''
 GROUP BY City, State;
 
-----A3. Duplicate rows (same data in every column except Row_ID)
+----A3. Duplicate rows  
 SELECT Order_ID, Order_Date, Ship_Date, Ship_Mode, Customer_ID, Product_ID, Sales,
        COUNT(*) AS times_found
 FROM dbo.sales_raw
@@ -41,7 +44,7 @@ GROUP BY Order_ID, Order_Date, Ship_Date, Ship_Mode, Customer_ID, Customer_Name,
          Category, Sub_Category, Product_Name, Sales
 HAVING COUNT(*) > 1;
 
-----A4. Dates that cannot be converted (format dd/mm/yyyy = style 103)
+----A4. Dates that cannot be converted 
 SELECT Order_Date, Ship_Date
 FROM dbo.sales_raw
 WHERE TRY_CONVERT(DATE, Order_Date, 103) IS NULL
@@ -126,15 +129,12 @@ SELECT
     SUM(CASE WHEN sales       IS NULL THEN 1 ELSE 0 END) AS null_sales
 FROM dbo.sales_clean;
 
-----D2. No missing values left in key columns
-SELECT
-    SUM(CASE WHEN order_date  IS NULL THEN 1 ELSE 0 END) AS null_order_date,
-    SUM(CASE WHEN ship_date   IS NULL THEN 1 ELSE 0 END) AS null_ship_date,
-    SUM(CASE WHEN postal_code IS NULL THEN 1 ELSE 0 END) AS null_postal_code,
-    SUM(CASE WHEN sales       IS NULL THEN 1 ELSE 0 END) AS null_sales
-FROM dbo.sales_clean;
+----D3. Logical check: ship date must not be before order date
+SELECT COUNT(*) AS ship_before_order
+FROM dbo.sales_clean
+WHERE ship_date < order_date;
 
-----D4. Date range of the data (use it to update the README)
+----D4. Date range of the data
 SELECT MIN(order_date) AS first_order, MAX(order_date) AS last_order
 FROM dbo.sales_clean;
 GO
@@ -224,3 +224,6 @@ SELECT
 FROM dbo.sales_clean
 GROUP BY segment
 ORDER BY total_sales DESC;
+
+
+ 
