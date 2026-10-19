@@ -1,5 +1,6 @@
 # Superstore Sales Analysis
-*Retail sales performance 2015–2018  SQL Server & Power BI*
+*Retail sales performance 2015–2018 · SQL Server & Power BI*
+
 ## Overview
 This project analyzes the sales performance of a US-based retail store (Superstore) between 2015 and 2018.
 The goal is to identify sales trends over time, the best-performing product categories, and the most valuable regions and customer segments, and to present the results in an interactive Power BI dashboard.
@@ -32,20 +33,20 @@ The goal is to identify sales trends over time, the best-performing product cate
 
 ## Project Structure
 ```
-superstore-sales-analysis/
+Superstore-Sales-Analysis/
 ├── README.md
 ├── data/
 │   └── train.csv
 ├── sql/
 │   └── superstore_sales_analysis.sql
 ├── powerbi/
-│   └── Superstore.pbix
+│   └── SUPERSTORE.pbix
 └── images/
-    └──Dashboard_SUPERSTORE.png
+    └── Dashboard_SUPERSTORE.png
 ```
 
 ## Data Cleaning
-Data was imported into SQL Server as a raw table (`sales_raw`) and cleaned into a new table (`sales_clean`) using `sql/superstore_sales_analysis.sql` (Part B).
+Data was imported into SQL Server as a raw table (`sales_raw`) and cleaned into a new table (`sales_clean`) using `sql/superstore_sales_analysis.sql` (Parts A–D).
 
 | Check | Finding | Action |
 |---|---|---|
@@ -59,7 +60,7 @@ Data was imported into SQL Server as a raw table (`sales_raw`) and cleaned into 
 **Result:** 9,800 raw rows → 9,799 clean rows.
 
 ## Analysis
-The analysis was performed in SQL Server using `sql/superstore_sales_analysis.sql` (Part C), based on the clean table (`sales_clean`).
+The analysis was performed in SQL Server using `sql/superstore_sales_analysis.sql` (section *Analysis queries*), based on the clean table (`sales_clean`).
 
 ### KPIs
 Calculated Total Sales, Total Orders, Average Order Value and Total Customers to give an overall view of the business.
@@ -93,7 +94,6 @@ Calculated Total Sales, Total Orders, Average Order Value and Total Customers to
 | `Avg Order Value` | Total Sales / Total Orders |
 | `Total Customers` | `DISTINCTCOUNT` of customer IDs |
 | `Sales PY`, `Sales YoY %` | Previous-year sales and growth using `SAMEPERIODLASTYEAR` |
-| `Selected Year` | Dynamic text showing the selected year |
 | `Year Color`, `Chart Color` | Dynamic colors: charts and slicer buttons take the color of the selected year |
 
 ### Dashboard features
@@ -132,4 +132,4 @@ Calculated Total Sales, Total Orders, Average Order Value and Total Customers to
 ## How to Use
 1. Download `train.csv` from the `data/` folder (or from Kaggle).
 2. Import it into SQL Server and run `sql/superstore_sales_analysis.sql` part by part.
-3. Open `powerbi/Superstore_Sales.pbix` in Power BI Desktop. To refresh the data, update the SQL Server connection to your own server (Home → Transform data → Data source settings).
+3. Open `powerbi/SUPERSTORE.pbix` in Power BI Desktop. To refresh the data, update the SQL Server connection to your own server (Home → Transform data → Data source settings).
